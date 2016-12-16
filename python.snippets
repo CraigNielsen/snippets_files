@@ -1,0 +1,65 @@
+snippet testcase "template for testing file"
+from backend import db
+import pytest
+from datetime import datetime, timedelta
+from backend.testing import LegacyTestCase, factories
+
+
+class Test${1}(LegacyTestCase):
+
+	def setUp(self):
+		super().setUp()
+
+	def test_${2}(self):
+endsnippet
+
+
+snippet dbac "db session add and commit"
+db.session.add(${1})
+db.session.commit()
+${2}
+endsnippet
+snippet dba "db session add"
+db.session.add(${1})
+endsnippet
+snippet dbc "db session commit"
+db.session.commit()
+${1}
+endsnippet
+snippet shebang "shebang"
+#!/bin/python3
+## ${1}
+endsnippet
+snippet apitest "API test case setup"
+import unittest
+from flask import url_for
+
+from backend import db
+from backend.testing import APITestCase, factories
+from backend.api.v1.resources.stock_units import ${1}
+
+
+ENDPOINT = 'v1.${2}' #lowercase with no underscores
+$1.assert_has_authorization = lambda x, y, z: 'hack'
+
+
+class Test${3}(APITestCase):
+	def setUp(self):
+		super().setUp()
+		self.session = factories.SessionFactory()
+		db.session.add(self.session)
+		db.session.commit()
+
+	def test_${4}(self):
+		${5} = factories.StockUnitFactory()
+		db.session.add($5)
+		db.session.commit()
+
+		r = self.get(
+				'api/v1/${6}',
+				session_token=self.session.token,
+		)
+
+		self.assert200(r, r.json)
+		self.assertEqual(r.json['data'][0]['id'], $5.id, r.json)
+endsnippet
