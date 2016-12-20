@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+=======
+snippet testcase "template for testing file"
+from backend import db
+import pytest
+from datetime import datetime, timedelta
+from backend.testing import LegacyTestCase, factories
+
+
+class Test${1}(LegacyTestCase):
+
+	def setUp(self):
+		super().setUp()
+
+	def test_${2}(self):
+endsnippet
+
+
+>>>>>>> 483f34df4e4a40c4b5bbed429487fd4bd9c01e69
 snippet dbac "db session add and commit"
 db.session.add(${1})
 db.session.commit()

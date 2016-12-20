@@ -5,15 +5,20 @@
 #
 ## create class component
 #
-snippet sty "stylequick"
-style={{${1}}}
-endsnippet
+<<<<<<< HEAD
+
+snippet ss "react set state" b
+this.setState({${1}})
+${0}
 endsnippet
 
-snippet tag "generic html tag" b
-<${1:div}>
-	${2}
-</$1>
+snippet rconst "react constructor" b
+constructor() {
+	super()
+	this.state = {
+	error: null,
+	}
+}
 endsnippet
 
 snippet conlog "conole log" b
