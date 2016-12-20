@@ -5,7 +5,23 @@
 #
 ## create class component
 #
+snippet jsf "arrow function" b
+${1} = (${2}) => {
+	${3}
+}
+endsnippet
+snippet timefunc "time a function in js" b
+var t0 = performance.now()
+${VISUAL}
+var t1 = performance.now()
+console.log("call to function ${1:} took" + (t1-t0) + "milliseconds")
+endsnippet
 
+snippet tag "tag for divs etc" b
+<${1:div}>
+	${2}
+</$1>
+endsnippet
 snippet ss "react set state" b
 this.setState({${1}})
 ${0}
