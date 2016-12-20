@@ -5,32 +5,25 @@
 #
 ## create class component
 #
-snippet sty "stylequick"
-style={{${1}}}
-endsnippet
+
+snippet ss "react set state" b
+this.setState({${1}})
+${0}
 endsnippet
 
-snippet tag "generic html tag" b
-<${1:div}>
-	${2}
-</$1>
+snippet rconst "react constructor" b
+constructor() {
+	super()
+	this.state = {
+	error: null,
+	}
+}
 endsnippet
 
 snippet conlog "conole log" b
 console.log("${1}", $1)
 endsnippet
 
-=======
-snippet sty "stylequick"
-style={{${1}}}
-endsnippet
-
-snippet tag "generic html tag" b
-<${1:div}>
-	${2}
-</$1>
-endsnippet
->>>>>>> 483f34df4e4a40c4b5bbed429487fd4bd9c01e69
 snippet rcc "create class component" b
 import React, { ${1:PropTypes, }Component } from 'react';
 
@@ -53,28 +46,16 @@ endsnippet
 ## functional component
 #
 
-<<<<<<< HEAD
 snippet rdc "create simple functional component" b
-=======
-snippet funCom "create simple functional component" b
-import React from 'react';
->>>>>>> 483f34df4e4a40c4b5bbed429487fd4bd9c01e69
 
 const ${1:functionalComponent} = (${2:props}) => {
   return (
     ${3:<div>
 		  $4
 		</div>}
-<<<<<<< HEAD
   )
 }
 
-=======
-  );
-};
-
-export default $1;
->>>>>>> 483f34df4e4a40c4b5bbed429487fd4bd9c01e69
 endsnippet
 
 #
