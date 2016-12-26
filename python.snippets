@@ -12,6 +12,9 @@ class Test${1}(LegacyTestCase):
 
 	def test_${2}(self):
 endsnippet
+snippet datetimeFromString "convert string to format" b
+datetime.strptime(${:stringOfDate}, '%b %d %Y %I:%M%p')
+endsnippet
 snippet dbac "db session add and commit"
 db.session.add(${1})
 db.session.commit()
