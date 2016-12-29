@@ -1,3 +1,13 @@
+
+snippet pluck "high order function takes list of keys to extract each record from list of dicts" b
+def pluck(keys):
+	def pluck_fn(record):
+		return reduce(lambda a, x: assoc(a, x, record[x]),
+			keys,
+			{})
+	return pluck_fn
+endsnippet
+
 snippet testcase "template for testing file"
 from backend import db
 import pytest
