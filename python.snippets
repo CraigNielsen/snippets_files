@@ -1,3 +1,13 @@
+snippet vr "constant defined like php var"
+${${1}} ${2}
+endsnippet
+
+snippet clojure "clojure 'currying' function" b
+def ${1}(${2}):
+	def ${3}(${4}):
+		return ${5}
+	return {3}
+endsnippet
 
 snippet pluck "high order function takes list of keys to extract each record from list of dicts" b
 def pluck(keys):
