@@ -1,9 +1,32 @@
+#time and time helpers
+#_______________________________
+
 snippet datetimeparse "parse a datetime string" b
 from dateutil.parser import parse
 parse(${1:string}, ignoretz=True)
 endsnippet
+
+
+snippet datetimeFromString "convert string to format" b
+datetime.strptime(${:stringOfDate}, '%b %d %Y %I:%M%p')
+endsnippet
+
+#_______________________________
+#funtional snippets
+
+snippet vr "constant defined like php var"
+${${1}} ${2}
+endsnippet
+
 snippet enumlistcomp "enumerate a list comprehesion for index" b
 ${1} = [${2} for index, ${3} in enumerate(${4})]
+endsnippet
+
+snippet clojure "clojure 'currying' function" b
+def ${1}(${2}):
+	def ${3}(${4}):
+		return ${5}
+	return {3}
 endsnippet
 
 snippet pluck "high order function takes list of keys to extract each record from list of dicts" b
@@ -14,6 +37,32 @@ def pluck(keys):
 			{})
 	return pluck_fn
 endsnippet
+
+#_______________________________
+#sqlalchemy snippets
+
+snippet dbac "db session add and commit"
+db.session.add(${1})
+db.session.commit()
+${2}
+endsnippet
+
+snippet dba "db session add"
+db.session.add(${1})
+endsnippet
+
+snippet dbc "db session commit"
+db.session.commit()
+${1}
+endsnippet
+
+snippet shebang "shebang"
+#!/bin/python3
+## ${1}
+endsnippet
+
+#_______________________________
+#Testing snippets
 
 snippet testcase "template for testing file"
 from backend import db
@@ -29,25 +78,7 @@ class Test${1}(LegacyTestCase):
 
 	def test_${2}(self):
 endsnippet
-snippet datetimeFromString "convert string to format" b
-datetime.strptime(${:stringOfDate}, '%b %d %Y %I:%M%p')
-endsnippet
-snippet dbac "db session add and commit"
-db.session.add(${1})
-db.session.commit()
-${2}
-endsnippet
-snippet dba "db session add"
-db.session.add(${1})
-endsnippet
-snippet dbc "db session commit"
-db.session.commit()
-${1}
-endsnippet
-snippet shebang "shebang"
-#!/bin/python3
-## ${1}
-endsnippet
+
 snippet apitest "API test case setup"
 import unittest
 from flask import url_for
