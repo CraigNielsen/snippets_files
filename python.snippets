@@ -1,3 +1,10 @@
+snippet datetimeparse "parse a datetime string" b
+from dateutil.parser import parse
+parse(${1:string}, ignoretz=True)
+endsnippet
+snippet enumlistcomp "enumerate a list comprehesion for index" b
+${1} = [${2} for index, ${3} in enumerate(${4})]
+endsnippet
 
 snippet pluck "high order function takes list of keys to extract each record from list of dicts" b
 def pluck(keys):
