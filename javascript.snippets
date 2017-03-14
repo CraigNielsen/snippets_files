@@ -64,13 +64,15 @@ endsnippet
 
 snippet rdc "create simple functional component" b
 
-const ${1:functionalComponent} = (${2:props}) => {
-  return (
-    ${3:<div>
-		  $4
-		</div>}
-  )
-}
+import React, { PropTypes } from 'react';
+
+const  ${1:ClassComponent} = (${2:Props}) =>  (
+<div>
+${3}
+</div>
+)
+
+export default $1
 
 endsnippet
 
