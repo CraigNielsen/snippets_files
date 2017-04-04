@@ -5,6 +5,11 @@
 #
 ## create class component
 #
+snippet rsp "react static proptypes" w
+static propTypes = {
+	${1}: PropTypes.${2}.isRequired,
+}
+endsnippet
 snippet jsf "arrow function" b
 ${1} = (${2}) => {
 	${3}
@@ -17,11 +22,12 @@ var t1 = performance.now()
 console.log("call to function ${1:} took" + (t1-t0) + "milliseconds")
 endsnippet
 
-snippet tag "tag for divs etc" b
-<${1:div} ${2:className=""}>
-	${3}
+snippet t "tag for divs etc"
+<${1:div} className="${2}">
+	${VISUAL}
 </$1>
 endsnippet
+
 snippet ss "react set state" b
 this.setState({${1}})
 ${0}
@@ -50,7 +56,7 @@ class ${2:ClassComponent} extends Component {
 		return (
 			${4:<div>
 			  $5
-			</div}
+			</div>}
 		);
 	}
 }
@@ -61,14 +67,16 @@ endsnippet
 #
 ## functional component
 #
-
+snippet cn "className" w
+className="${1}"
+endsnippet
 snippet rdc "create simple functional component" b
 
 import React, { PropTypes } from 'react';
 
-const  ${1:ClassComponent} = (${2:Props}) =>  (
+const ${1:ClassComponent} = (${2:Props}) => (
 <div>
-${3}
+	${3}
 </div>
 )
 
