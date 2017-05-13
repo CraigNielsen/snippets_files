@@ -1,5 +1,11 @@
 #time and time helpers
 #_______________________________
+snippet mock "mock testing etc"
+@patch(module.__name__ + '.function_name', return_value=True)
+def test_something(self, ds):
+
+# or: with patch.object(Object, 'function of object', wraps=object_instance.function) as fun:
+endsnippet
 
 snippet datetimeparse "parse a datetime string" b
 from dateutil.parser import parse
