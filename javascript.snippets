@@ -22,6 +22,14 @@ var t1 = performance.now()
 console.log("call to function ${1:} took" + (t1-t0) + "milliseconds")
 endsnippet
 
+snippet timeout "timeout" b
+setTimeout(function(){${VISUAL}}, 3000);
+endsnippet
+snippet ts "tag for divs etc" b
+<${1:div} style={{${2}}}>
+	${VISUAL}
+</$1>
+endsnippet
 snippet t "tag for divs etc" b
 <${1:div} className="${2}">
 	${VISUAL}
@@ -72,15 +80,11 @@ className="${1}"
 endsnippet
 snippet rdc "create simple functional component" b
 
-import React, { PropTypes } from 'react';
-
 const ${1:ClassComponent} = (${2:Props}) => (
 <div>
 	${3}
 </div>
 )
-
-export default $1
 
 endsnippet
 
