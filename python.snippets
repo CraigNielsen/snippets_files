@@ -1,4 +1,7 @@
 #time and time helpers
+snippet assert "python assertion with string" b
+assert type(${1}), "%r" % $1
+endsnippet
 #_______________________________
 snippet mock "mock testing etc"
 @patch(module.__name__ + '.function_name', return_value=True)
